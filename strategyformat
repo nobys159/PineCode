@@ -1,0 +1,20 @@
+totalTrades = strategy.closedtrades
+winTrades = strategy.wintrades
+loseTrades = strategy.losstrades
+winRate = winTrades / totalTrades * 100
+
+var table tbl = na
+tbl := table.new(position = position.top_right, columns = 5, rows = 2, border_width = 1, bgcolor = color.new(color.black, 50))
+
+table.cell(tbl, 1, 0, "Total", text_color= color.white)
+table.cell(tbl, 1, 1, str.tostring(totalTrades), text_color=color.white)
+
+table.cell(tbl, 2, 0, "Win", text_color=color.teal)
+table.cell(tbl, 2, 1, str.tostring(winTrades), text_color=color.white)
+
+
+table.cell(tbl, 3, 0, "Lose", text_color=color.red)
+table.cell(tbl, 3, 1, str.tostring(loseTrades), text_color=color.white)
+
+table. cell(tbl, 4, 0,"%", text_color=color.orange)
+table.cell(tbl, 4, 1, str.tostring(winRate, "#.00"), text_color= color.white)
